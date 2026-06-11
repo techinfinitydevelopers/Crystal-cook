@@ -106,7 +106,7 @@ MARKETPLACES = [
     {"slug": "meesho",   "name": "Meesho"},
 ]
 
-U = "https://proj.leo9studio.in/wp-content/uploads/"
+U = "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/"
 
 PRODUCTS = [
     # CRYSTAL — Lighters
