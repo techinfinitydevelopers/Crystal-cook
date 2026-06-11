@@ -11,10 +11,14 @@ SECRET_KEY = env('SECRET_KEY', default='django-insecure-change-me-in-production'
 DEBUG = env('DEBUG')
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
-# Railway — auto-add domain
+# Railway — auto-add domain + healthcheck host
 _railway_domain = os.environ.get('RAILWAY_PUBLIC_DOMAIN')
 if _railway_domain and _railway_domain not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(_railway_domain)
+# Railway internal healthcheck sends Host: healthcheck.railway.app
+for _h in ('healthcheck.railway.app', '.railway.app'):
+    if _h not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(_h)
 
 # PythonAnywhere — auto-add *.pythonanywhere.com if running there
 _pa_host = os.environ.get('PYTHONANYWHERE_DOMAIN') or os.environ.get('PYTHONANYWHERE_SITE')
