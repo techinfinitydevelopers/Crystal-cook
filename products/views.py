@@ -1,8 +1,18 @@
 import json
+from django.conf import settings
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET
 from .models import Brand, Category, Product, Marketplace
+
+
+def _resolve_url(url):
+    """Relative seed paths (e.g. 'about-assets/x.jpg') live under static/."""
+    if not url:
+        return ''
+    if url.startswith('http://') or url.startswith('https://') or url.startswith('/'):
+        return url
+    return settings.STATIC_URL + url
 
 
 def _brand_dict(b, request):
@@ -29,7 +39,7 @@ def _product_dict(p, request):
     if p.featured_image:
         img_url = request.build_absolute_uri(p.featured_image.url)
     elif p.image_url:
-        img_url = p.image_url
+        img_url = _resolve_url(p.image_url)
 
     thumb_url = ''
     if p.thumbnail:
