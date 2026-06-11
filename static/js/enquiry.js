@@ -121,6 +121,11 @@
     "header .nav-right .enq-link:hover{background:var(--ink,#1A1A1A);color:#fff;border-color:var(--ink,#1A1A1A);transform:translateY(-2px);}" +
     "header .nav-right .enq-link svg{width:20px;height:20px;}" +
     "header .nav-right .enq-link .enq-count{position:absolute;top:-5px;right:-5px;min-width:17px;height:17px;padding:0 4px;font-size:10px;border:2px solid #fff;box-shadow:0 2px 6px -2px rgba(0,0,0,.4);}" +
+    /* normalise the off-canvas mobile menu across every page (top-aligned + scrollable so long accordions don't clip) */
+    ".mobile-menu{justify-content:flex-start!important;gap:4px;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-top:clamp(84px,13vh,116px)!important;padding-bottom:40px!important;}" +
+    ".mobile-menu .mm-cart{display:inline-flex;align-items:center;gap:12px;}" +
+    /* normalise menu typography to match the home page on every page (links + the Products/Brands <button> toggles) */
+    ".mobile-menu ul > li > a,.mobile-menu .mm-acc-tog{font-family:var(--head,'Space Grotesk',sans-serif);font-weight:700;text-transform:uppercase;font-size:clamp(26px,7.4vw,42px);line-height:1.08;}" +
     ".enq-toast{position:fixed;left:50%;top:18px;transform:translateX(-50%) translateY(-22px);background:var(--ink,#1A1A1A);color:#fff;padding:12px 22px;border-radius:100px;font:600 14px var(--body,sans-serif);box-shadow:0 16px 40px -16px rgba(0,0,0,.5);opacity:0;pointer-events:none;z-index:3000;transition:opacity .25s,transform .25s;}" +
     ".enq-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}" +
     ".enq-modal-overlay{position:fixed;inset:0;background:rgba(10,10,10,.5);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:grid;place-items:center;opacity:0;z-index:3000;padding:20px;transition:opacity .2s;}" +
