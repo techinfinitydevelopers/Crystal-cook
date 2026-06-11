@@ -656,9 +656,9 @@
 
   /* ---- shared nav renders ---- */
   const brandList = Object.keys(BRANDS);
-  document.getElementById("ddMenu").innerHTML = brandList.map(s => `<a href="All-Products.html?brand=${s}"${s===prod.b?' class="active"':''}><b>${BRANDS[s].name}</b><span>${BRANDS[s].tagline}</span></a>`).join("");
-  document.getElementById("footBrands").innerHTML = brandList.map(s => `<li><a href="All-Products.html?brand=${s}">${BRANDS[s].name}</a></li>`).join("");
-  document.getElementById("mmBrands").innerHTML = brandList.map(s => `<a href="All-Products.html?brand=${s}" class="mm-link">${BRANDS[s].name}</a>`).join("");
+  (document.getElementById("ddMenu") || {}).innerHTML = brandList.map(s => `<a href="/products/?brand=${s}"${s===prod.b?' class="active"':''}><b>${BRANDS[s].name}</b><span>${BRANDS[s].tagline}</span></a>`).join("");
+  (document.getElementById("footBrands") || {}).innerHTML = brandList.map(s => `<li><a href="/products/?brand=${s}">${BRANDS[s].name}</a></li>`).join("");
+  (document.getElementById("mmBrands") || {}).innerHTML = brandList.map(s => `<a href="/products/?brand=${s}" class="mm-link">${BRANDS[s].name}</a>`).join("");
 
   /* ---- breadcrumb ---- */
   document.getElementById("crumb").innerHTML = `

@@ -499,9 +499,9 @@
   };
   const NAMES = { crystal:"Crystal", crystalina:"Crystalina", sparkmate:"SparkMate", valmate:"ValMate" };
   const bl = Object.keys(BRANDS);
-  document.getElementById("ddMenu").innerHTML = bl.map(s => `<a href="All-Products.html?brand=${s}"><b>${NAMES[s]}</b><span>${BRANDS[s]}</span></a>`).join("");
-  document.getElementById("footBrands").innerHTML = bl.map(s => `<li><a href="All-Products.html?brand=${s}">${NAMES[s]}</a></li>`).join("");
-  document.getElementById("mmBrands").innerHTML = bl.map(s => `<a href="All-Products.html?brand=${s}" class="mm-link">${NAMES[s]}</a>`).join("");
+  (document.getElementById("ddMenu") || {}).innerHTML = bl.map(s => `<a href="/products/?brand=${s}"><b>${NAMES[s]}</b><span>${BRANDS[s]}</span></a>`).join("");
+  (document.getElementById("footBrands") || {}).innerHTML = bl.map(s => `<li><a href="/products/?brand=${s}">${NAMES[s]}</a></li>`).join("");
+  (document.getElementById("mmBrands") || {}).innerHTML = bl.map(s => `<a href="/products/?brand=${s}" class="mm-link">${NAMES[s]}</a>`).join("");
 
   /* word split */
   function splitWords(el) {

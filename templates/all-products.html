@@ -619,9 +619,9 @@
 
   /* ---------- RENDER: brand dropdown + footer brands + mobile ---------- */
   const ddHTML = BRANDS.map(b => `<a href="All-Products.html?brand=${b.slug}"${brand && brand.slug === b.slug ? ' class="active"' : ''}><b>${b.name}</b><span>${b.tagline}</span></a>`).join("");
-  document.getElementById("ddMenu").innerHTML = ddHTML;
-  document.getElementById("footBrands").innerHTML = BRANDS.map(b => `<li><a href="All-Products.html?brand=${b.slug}">${b.name}</a></li>`).join("");
-  document.getElementById("mmBrands").innerHTML = BRANDS.map(b => `<a href="All-Products.html?brand=${b.slug}" class="mm-link">${b.name}</a>`).join("");
+  (document.getElementById("ddMenu") || {}).innerHTML = ddHTML;
+  (document.getElementById("footBrands") || {}).innerHTML = BRANDS.map(b => `<li><a href="/products/?brand=${b.slug}">${b.name}</a></li>`).join("");
+  (document.getElementById("mmBrands") || {}).innerHTML = BRANDS.map(b => `<a href="/products/?brand=${b.slug}" class="mm-link">${b.name}</a>`).join("");
 
   /* ---------- RENDER: hero ---------- */
   if (brand) {
