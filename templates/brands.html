@@ -542,7 +542,7 @@
   document.getElementById("mmClose").addEventListener("click", () => mm2.classList.remove("open"));
   document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mm2.classList.remove("open")));
 </script>
-<script src="{% static 'js/enquiry.js' %}"></script>
+<script src="{% static 'js/enquiry.js' %}?v=2"></script>
 <script>
   window.__DJANGO_DATA__ = {
     brands: {{ brands_json|safe }}

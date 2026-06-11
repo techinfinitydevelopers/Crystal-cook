@@ -537,7 +537,7 @@
   document.getElementById("mmClose").addEventListener("click", () => mm2.classList.remove("open"));
   document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mm2.classList.remove("open")));
 </script>
-<script src="{% static 'js/enquiry.js' %}"></script>
+<script src="{% static 'js/enquiry.js' %}?v=2"></script>
 <script>
 (function(){
   var _blogs = {{ blogs_json|safe }};
