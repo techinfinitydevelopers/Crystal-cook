@@ -34,7 +34,7 @@
     --r: 20px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+  html { scroll-behavior: smooth; scrollbar-gutter: stable; overflow-x: clip; }
   body { font-family: var(--body); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: clip; }
   img { display: block; max-width: 100%; }
   a { color: inherit; text-decoration: none; }
@@ -251,23 +251,24 @@
 
   /* ===== WHY + STATS ===== */
   .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .why-card { border-radius: var(--r); padding: 28px 24px 32px; min-height: 264px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; border: 1.5px solid var(--line-d); transition: transform .3s; }
-  .why-card:hover { transform: translateY(-6px) rotate(-1deg); }
-  .why-card .wn { font-family: var(--head); font-weight: 700; font-size: 14px; color: var(--red); }
+  .why-card { position: relative; border-radius: var(--r); padding: 30px 26px; min-height: 210px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; border: 1.5px solid var(--line-d); transition: transform .3s, box-shadow .3s; }
+  .why-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -28px rgba(0,0,0,0.45); }
+  .why-card .wn { position: absolute; top: 22px; right: 24px; font-family: var(--head); font-weight: 700; font-size: 13px; color: var(--red); opacity: .55; }
   .why-card .pic { width: 54px; height: 54px; margin: 14px 0; }
-  .why-card h4 { font-size: 21px; text-transform: uppercase; margin-bottom: 9px; }
-  .why-card p { font-size: 14.5px; line-height: 1.5; color: var(--muted-d); }
-  .stats { margin-top: 64px; display: grid; grid-template-columns: auto repeat(4, 1fr); gap: 30px; align-items: center; padding-top: 44px; border-top: 1.5px solid var(--line-d); }
+  .why-card > div:last-child { display: flex; flex-direction: column; gap: 5px; }
+  .why-card h4 { font-size: 20px; text-transform: uppercase; margin: 0; }
+  .why-card p { font-size: 14px; line-height: 1.5; color: var(--muted-d); margin: 0; }
+  .stats { margin-top: 64px; display: grid; grid-template-columns: auto repeat(4, 1fr); gap: 28px clamp(24px, 3.5vw, 52px); align-items: baseline; padding-top: 44px; border-top: 1.5px solid var(--line-d); }
   .stats .brand { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 18px; line-height: 1.3; }
   .stats .brand .since { display: block; color: var(--red); font-size: 13px; letter-spacing: 0.08em; margin-top: 4px; }
-  .stat .num { font-family: var(--head); font-weight: 700; font-size: clamp(40px, 6vw, 80px); line-height: .9; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .stat .lbl { margin-top: 10px; color: var(--muted-d); font-size: 14px; font-weight: 600; }
+  .stat .num { font-family: var(--head); font-weight: 700; font-size: clamp(32px, 3.4vw, 50px); line-height: 1; letter-spacing: -0.02em; white-space: nowrap; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat .lbl { margin-top: 10px; color: var(--muted-d); font-size: 13.5px; font-weight: 600; }
 
   /* ===== BLOG / cards grid ===== */
   .tst-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .tst-card { background: var(--white); border: 1.5px solid var(--line); border-radius: var(--r); padding: 26px; transition: transform .3s, box-shadow .3s; }
   @media (max-width: 860px) { .tst-track { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px) { .tst-track { grid-template-columns: 1fr; } }s, box-shadow .3s; }
+  @media (max-width: 560px) { .tst-track { grid-template-columns: 1fr; } }
   .tst-card:hover { transform: translateY(-8px); box-shadow: 0 26px 50px -30px rgba(0,0,0,0.35); }
   .tst-card .ph { aspect-ratio: 16/10; border-radius: 14px; overflow: hidden; margin-bottom: 18px; }
   .tst-card .ph image-slot { width: 100%; height: 100%; }
@@ -314,12 +315,18 @@
   .foot-bottom { padding-top: 24px; border-top: 1.5px solid var(--line-d); display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; color: var(--muted-d); font-size: 14px; }
 
   /* ===== MOBILE MENU ===== */
-  .mobile-menu { position: fixed; inset: 0; z-index: 101; background: var(--ink); color: #fff; transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; justify-content: center; padding: var(--pad); }
+  .mobile-menu { position: fixed; inset: 0; z-index: 101; width: 100%; max-width: 100%; background: var(--ink); color: #fff; transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; justify-content: flex-start; gap: 4px; padding: clamp(84px, 13vh, 116px) var(--pad) 40px; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
   .mobile-menu.open { transform: none; }
-  .mobile-menu ul { list-style: none; display: grid; gap: 6px; }
-  .mobile-menu a { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(34px, 11vw, 60px); }
+  .mobile-menu ul { list-style: none; display: grid; gap: 4px; }
+  .mobile-menu a { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(26px, 7.4vw, 42px); line-height: 1.08; }
   .mobile-menu a:hover { color: var(--red); }
-  .mm-close { position: absolute; top: 24px; right: var(--pad); background: var(--grad-red); color: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 26px; cursor: pointer; }
+  .mm-close { position: fixed; top: 20px; right: var(--pad); background: var(--grad-red); color: #fff; border: none; width: 46px; height: 46px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 2; }
+  /* keep brand links small inside the off-canvas menu (override the big heading rule) */
+  .mobile-menu .mm-brands { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.16); }
+  .mobile-menu .mm-brands a { font-family: var(--body); font-weight: 600; text-transform: none; font-size: 16px; line-height: 1.4; color: var(--muted-d); }
+  .mobile-menu .mm-brands a:hover { color: var(--red); }
+  .mobile-menu .mm-acc-tog { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(26px, 7.4vw, 42px); line-height: 1.08; }
+  .mobile-menu .enq-count { font-size: 14px; vertical-align: middle; }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 960px) {
@@ -361,13 +368,25 @@
     .foot-cta .btn { width: 100%; justify-content: center; }
     .foot-wordmark { font-size: clamp(52px, 22vw, 116px); }
     .cta h2 { font-size: clamp(40px, 13vw, 80px); }
+    /* section-head CTA buttons go full-width so they don't crowd the heading */
+    .sec-head { flex-direction: column; align-items: flex-start; }
+    .sec-head > .btn { width: 100%; justify-content: center; }
+    .who-actions { gap: 12px; }
+    .who-actions .btn { width: 100%; justify-content: center; }
+    .who-statement { font-size: clamp(22px, 6.4vw, 32px); }
+    .who-media .tag { left: 0; bottom: -10px; font-size: 12px; padding: 10px 14px; }
+    /* blog cards: horizontal swipe strip on phones (drag handler already wired) */
+    .tst-track { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: 82%; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 14px; cursor: grab; padding-bottom: 6px; }
+    .tst-track::-webkit-scrollbar { display: none; }
+    .tst-track > .tst-card { scroll-snap-align: start; }
   }
   @media (max-width: 400px) {
     .hero h1 { font-size: clamp(26px, 9vw, 40px); }
     .btn { padding: 13px 20px; font-size: 14px; }
     .wrap { padding-inline: 16px; }
     .foot-wordmark { font-size: 46px; }
-    .mobile-menu a { font-size: clamp(30px, 12vw, 48px); }
+    .mobile-menu a, .mobile-menu .mm-acc-tog { font-size: clamp(24px, 7vw, 36px); }
+    .mobile-menu .mm-brands a { font-size: 15px; }
   }
   @media (max-height: 820px) { .scroll-hint { display: none; } }
   @media (max-width: 820px) { .cta { background-attachment: scroll; } }
@@ -424,7 +443,7 @@
           <div class="mega-menu mega-v2">
             <div class="mega-groups">
             <div class="mega-col">
-              <a class="mega-h" href="/products/?cat=cookware"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 10h2M20 10h2M9 6V4M15 6V4"/></svg>Cookware</a>
+              <a class="mega-h" href="/category/cookware/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 10h2M20 10h2M9 6V4M15 6V4"/></svg>Cookware</a>
               <a href="/products/?cat=cookware&sub=tripro">Tripro</a>
               <a href="/products/?cat=cookware&sub=cast-iron">Cast Iron</a>
               <a href="/products/?cat=cookware&sub=non-stick">Non-Stick</a>
@@ -433,7 +452,7 @@
               <a href="/products/?cat=cookware&sub=hard-anodised">Hard Anodised</a>
             </div>
             <div class="mega-col">
-              <a class="mega-h" href="/products/?cat=kitchenware"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M5 3v6h2V3"/><path d="M15 3c-2 0-3 2-3 4.5S13 12 15 12v9"/></svg>Kitchenware</a>
+              <a class="mega-h" href="/category/kitchenware/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M5 3v6h2V3"/><path d="M15 3c-2 0-3 2-3 4.5S13 12 15 12v9"/></svg>Kitchenware</a>
               <a href="/products/?cat=kitchenware&sub=lighters">Lighters</a>
               <a href="/products/?cat=kitchenware&sub=knives">Knives</a>
               <a href="/products/?cat=kitchenware&sub=peelers">Peelers</a>
@@ -446,7 +465,7 @@
               <a href="/products/?cat=kitchenware&sub=water-filter">Water Filter</a>
             </div>
             <div class="mega-col">
-              <a class="mega-h" href="/products/?cat=cleaning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4h4v5h-4z"/><path d="M10 9l-2 4v7h8v-7l-2-4M6 4h2M6 7h2"/></svg>Cleaning Aid</a>
+              <a class="mega-h" href="/category/cleaning/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4h4v5h-4z"/><path d="M10 9l-2 4v7h8v-7l-2-4M6 4h2M6 7h2"/></svg>Cleaning Aid</a>
               <a href="/products/?cat=cleaning&sub=spin-mops">Spin Mops</a>
               <a href="/products/?cat=cleaning&sub=hand-held-mops">Hand Held Mops</a>
               <a href="/products/?cat=cleaning&sub=brooms">Broom &amp; Dust Pans</a>
@@ -459,7 +478,7 @@
               <a href="/products/?cat=cleaning&sub=wipe">Wipe</a>
             </div>
             <div class="mega-col">
-              <a class="mega-h" href="/products/?cat=appliances"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Electric Appliances</a>
+              <a class="mega-h" href="/category/appliances/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Electric Appliances</a>
               <a href="/products/?cat=appliances&sub=chimney">Chimney</a>
               <a href="/products/?cat=appliances&sub=kettle">Kettle</a>
               <a href="/products/?cat=appliances&sub=iron">Iron</a>
@@ -473,12 +492,12 @@
             </div>
             <div class="mega-standalone">
               <span class="mega-standalone-lbl">Also explore</span>
-              <a href="/products/?cat=water-bottle">Water Bottle</a>
-              <a href="/products/?cat=oil-pourer">Oil Pourer &amp; Sprayer</a>
-              <a href="/products/?cat=wood-range">Wood Range</a>
-              <a href="/products/?cat=pressure-cooker">Pressure Cooker</a>
-              <a href="/products/?cat=cooktop">Cooktop</a>
-              <a href="/products/?cat=lunch-box">Lunch Box</a>
+              <a href="/category/water-bottle/">Water Bottle</a>
+              <a href="/category/oil-pourer/">Oil Pourer &amp; Sprayer</a>
+              <a href="/category/wood-range/">Wood Range</a>
+              <a href="/category/pressure-cooker/">Pressure Cooker</a>
+              <a href="/category/cooktop/">Cooktop</a>
+              <a href="/category/lunch-box/">Lunch Box</a>
             </div>
           </div>
         </li>
@@ -506,19 +525,18 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
   <ul>
-    <li><a href="/enquiry/" class="mm-link">Enquiry List <span class="enq-count">0</span></a></li>
     <li><a href="/about/" class="mm-link">About</a></li>
         <li class="mm-acc">
       <button type="button" class="mm-acc-tog mm-link" aria-expanded="false">Products <span class="mm-cv">+</span></button>
       <div class="mm-acc-panel">
-      <a class="mm-acc-h" href="/products/?cat=cookware">Cookware</a>
+      <a class="mm-acc-h" href="/category/cookware/">Cookware</a>
       <a class="mm-acc-sub" href="/products/?cat=cookware&sub=tripro">Tripro</a>
       <a class="mm-acc-sub" href="/products/?cat=cookware&sub=cast-iron">Cast Iron</a>
       <a class="mm-acc-sub" href="/products/?cat=cookware&sub=non-stick">Non-Stick</a>
       <a class="mm-acc-sub" href="/products/?cat=cookware&sub=non-stick-mini">Non-Stick Mini</a>
       <a class="mm-acc-sub" href="/products/?cat=cookware&sub=sandwich-bottom-steel">Sandwich Bottom Steel</a>
       <a class="mm-acc-sub" href="/products/?cat=cookware&sub=hard-anodised">Hard Anodised</a>
-      <a class="mm-acc-h" href="/products/?cat=kitchenware">Kitchenware</a>
+      <a class="mm-acc-h" href="/category/kitchenware/">Kitchenware</a>
       <a class="mm-acc-sub" href="/products/?cat=kitchenware&sub=lighters">Lighters</a>
       <a class="mm-acc-sub" href="/products/?cat=kitchenware&sub=knives">Knives</a>
       <a class="mm-acc-sub" href="/products/?cat=kitchenware&sub=peelers">Peelers</a>
@@ -529,7 +547,7 @@
       <a class="mm-acc-sub" href="/products/?cat=kitchenware&sub=cutlery">Cutlery</a>
       <a class="mm-acc-sub" href="/products/?cat=kitchenware&sub=servers">Servers</a>
       <a class="mm-acc-sub" href="/products/?cat=kitchenware&sub=water-filter">Water Filter</a>
-      <a class="mm-acc-h" href="/products/?cat=cleaning">Cleaning Aid</a>
+      <a class="mm-acc-h" href="/category/cleaning/">Cleaning Aid</a>
       <a class="mm-acc-sub" href="/products/?cat=cleaning&sub=spin-mops">Spin Mops</a>
       <a class="mm-acc-sub" href="/products/?cat=cleaning&sub=hand-held-mops">Hand Held Mops</a>
       <a class="mm-acc-sub" href="/products/?cat=cleaning&sub=brooms">Broom &amp; Dust Pans</a>
@@ -540,7 +558,7 @@
       <a class="mm-acc-sub" href="/products/?cat=cleaning&sub=bins">Bins</a>
       <a class="mm-acc-sub" href="/products/?cat=cleaning&sub=sink-organiser">Sink Organiser</a>
       <a class="mm-acc-sub" href="/products/?cat=cleaning&sub=wipe">Wipe</a>
-      <a class="mm-acc-h" href="/products/?cat=appliances">Electric Appliances</a>
+      <a class="mm-acc-h" href="/category/appliances/">Electric Appliances</a>
       <a class="mm-acc-sub" href="/products/?cat=appliances&sub=chimney">Chimney</a>
       <a class="mm-acc-sub" href="/products/?cat=appliances&sub=kettle">Kettle</a>
       <a class="mm-acc-sub" href="/products/?cat=appliances&sub=iron">Iron</a>
@@ -551,24 +569,29 @@
       <a class="mm-acc-sub" href="/products/?cat=appliances&sub=food-processor">Food Processor</a>
       <a class="mm-acc-sub" href="/products/?cat=appliances&sub=jmg">JMG</a>
       <span class="mm-acc-h" style="opacity:.6">Also explore</span>
-      <a class="mm-acc-sub" href="/products/?cat=water-bottle">Water Bottle</a>
-      <a class="mm-acc-sub" href="/products/?cat=oil-pourer">Oil Pourer &amp; Sprayer</a>
-      <a class="mm-acc-sub" href="/products/?cat=wood-range">Wood Range</a>
-      <a class="mm-acc-sub" href="/products/?cat=pressure-cooker">Pressure Cooker</a>
-      <a class="mm-acc-sub" href="/products/?cat=cooktop">Cooktop</a>
-      <a class="mm-acc-sub" href="/products/?cat=lunch-box">Lunch Box</a>
+      <a class="mm-acc-sub" href="/category/water-bottle/">Water Bottle</a>
+      <a class="mm-acc-sub" href="/category/oil-pourer/">Oil Pourer &amp; Sprayer</a>
+      <a class="mm-acc-sub" href="/category/wood-range/">Wood Range</a>
+      <a class="mm-acc-sub" href="/category/pressure-cooker/">Pressure Cooker</a>
+      <a class="mm-acc-sub" href="/category/cooktop/">Cooktop</a>
+      <a class="mm-acc-sub" href="/category/lunch-box/">Lunch Box</a>
+      </div>
+    </li>
+    <li class="mm-acc">
+      <button type="button" class="mm-acc-tog mm-link" aria-expanded="false">Brands <span class="mm-cv">+</span></button>
+      <div class="mm-acc-panel">
+        <a class="mm-acc-h" href="/brands/">All Brands</a>
+        <a class="mm-acc-sub" href="/products/?brand=crystal">Crystal — World of Kitchenware</a>
+        <a class="mm-acc-sub" href="/products/?brand=crystalina">Crystalina — Splendid Finish</a>
+        <a class="mm-acc-sub" href="/products/?brand=sparkmate">SparkMate — Cleaning Simplified</a>
+        <a class="mm-acc-sub" href="/products/?brand=valmate">ValMate — Value for Money</a>
       </div>
     </li>
     <li><a href="/catalogue/" class="mm-link">Catalogue</a></li>
     <li><a href="/blog/" class="mm-link">Knowledge Centre</a></li>
     <li><a href="/contact/" class="mm-link">Contact Us</a></li>
+    <li><a href="/enquiry/" class="mm-link">Enquiry List <span class="enq-count">0</span></a></li>
   </ul>
-  <div class="mm-brands">
-    <a href="/products/?brand=crystal" class="mm-link">Crystal</a>
-    <a href="/products/?brand=crystalina" class="mm-link">Crystalina</a>
-    <a href="/products/?brand=sparkmate" class="mm-link">SparkMate</a>
-    <a href="/products/?brand=valmate" class="mm-link">ValMate</a>
-  </div>
 </div>
 
 <span id="top"></span>
@@ -767,7 +790,7 @@
       </div>
       <div class="foot-col">
         <h5>Products</h5>
-        <ul><li><a href="/products/?cat=cookware">Cookware</a></li><li><a href="/products/?cat=cutlery">Kitchenware</a></li><li><a href="/products/?cat=cleaning">Cleaning Aid</a></li><li><a href="/products/?cat=appliances">Electric Appliances</a></li></ul>
+        <ul><li><a href="/category/cookware/">Cookware</a></li><li><a href="/category/kitchenware/">Kitchenware</a></li><li><a href="/category/cleaning/">Cleaning Aid</a></li><li><a href="/category/appliances/">Electric Appliances</a></li></ul>
       </div>
       <div class="foot-col">
         <h5>Quick Link</h5>
@@ -977,11 +1000,21 @@
     /* about: scroll-SCRUBBED word reveal — words light up as you scroll through the section */
     const aboutWords = gsap.utils.toArray("[data-lines] .word");
     if (aboutWords.length) {
-      gsap.set(aboutWords, { opacity: 0.16, yPercent: 0 });
-      gsap.to(aboutWords, {
-        opacity: 1, ease: "none", stagger: { each: 0.5 },
-        scrollTrigger: { trigger: "#about", start: "top 78%", end: "center 42%", scrub: 0.6 }
-      });
+      if (window.matchMedia("(min-width: 769px)").matches) {
+        // desktop: scrubbed word-reveal as you scroll through the section
+        gsap.set(aboutWords, { opacity: 0.16, yPercent: 0 });
+        gsap.to(aboutWords, {
+          opacity: 1, ease: "none", stagger: { each: 0.5 },
+          scrollTrigger: { trigger: "#about", start: "top 78%", end: "center 42%", scrub: 0.6 }
+        });
+      } else {
+        // mobile: keep the paragraph fully legible with a simple fade-in
+        gsap.set(aboutWords, { opacity: 1 });
+        gsap.from(aboutWords, {
+          opacity: 0, y: 16, duration: 0.5, stagger: 0.02, ease: "power2.out",
+          scrollTrigger: { trigger: "#about", start: "top 85%", once: true }
+        });
+      }
     }
     /* about image: scrubbed clip-reveal + gentle parallax tied to scroll */
     gsap.fromTo("[data-img-right] .ph",
@@ -1091,10 +1124,7 @@
   const hdr = document.getElementById("hdr");
   addEventListener("scroll", () => hdr.classList.toggle("scrolled", scrollY > 30), { passive: true });
 
-  const mm2 = document.getElementById("mobileMenu");
-  document.getElementById("burger").addEventListener("click", () => mm2.classList.add("open"));
-  document.getElementById("mmClose").addEventListener("click", () => mm2.classList.remove("open"));
-  document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mm2.classList.remove("open")));
+  // NOTE: mobile-menu open/close/accordion handlers live in a dedicated script at the end of <body>
 
   /* counters */
   const counted = new Set();
@@ -1203,5 +1233,22 @@
 })();
 </script>
 <script src="{% static 'js/enquiry.js' %}"></script>
+<script>
+  /* ---------- MOBILE MENU (open / close / accordion) ---------- */
+  (function () {
+    var menu = document.getElementById("mobileMenu");
+    var burger = document.getElementById("burger");
+    var close = document.getElementById("mmClose");
+    if (!menu) return;
+    if (burger) burger.addEventListener("click", function () { menu.classList.add("open"); });
+    if (close) close.addEventListener("click", function () { menu.classList.remove("open"); });
+    // NOTE: the Products/Brands accordion toggle is handled by enquiry.js (.mm-acc-tog).
+    // Here we only close the menu when a real navigation link is tapped (not the accordion buttons).
+    menu.addEventListener("click", function (e) {
+      if (e.target.closest(".mm-acc-tog")) return;       // accordion button — leave menu open
+      if (e.target.closest("a.mm-link")) menu.classList.remove("open");
+    });
+  })();
+</script>
 </body>
 </html>

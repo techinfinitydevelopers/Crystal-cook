@@ -1,9 +1,25 @@
 import json
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
 from django.views.decorators.http import require_GET
 from .models import Brand, Category, Product, Marketplace
+
+
+# Canonical top-level categories (slug -> display name). Mirrors the nav mega-menu.
+# Kept here so category pages render correctly even before Category rows are seeded.
+MAIN_CATEGORIES = {
+    'cookware': 'Cookware',
+    'kitchenware': 'Kitchenware',
+    'cleaning': 'Cleaning Aid',
+    'appliances': 'Electric Appliances',
+    'water-bottle': 'Water Bottle',
+    'oil-pourer': 'Oil Pourer & Sprayer',
+    'wood-range': 'Wood Range',
+    'pressure-cooker': 'Pressure Cooker',
+    'cooktop': 'Cooktop',
+    'lunch-box': 'Lunch Box',
+}
 
 
 def _resolve_url(url):
@@ -108,6 +124,35 @@ def all_products(request):
         'products_json': json.dumps([_product_dict(p, request) for p in products]),
         'brands_json': json.dumps([_brand_dict(b, request) for b in brands]),
         'categories_json': json.dumps([_cat_dict(c) for c in categories]),
+    }
+    return render(request, 'all-products.html', context)
+
+
+def category_page(request, slug):
+    slug = slug.lower()
+    cat_obj = Category.objects.filter(slug=slug).first()
+    if slug not in MAIN_CATEGORIES and cat_obj is None:
+        raise Http404("Unknown category")
+
+    products = Product.objects.filter(is_active=True).select_related('brand', 'category')
+    brands = Brand.objects.filter(is_active=True)
+    categories = Category.objects.all()
+    cat_name = MAIN_CATEGORIES.get(slug) or (cat_obj.name if cat_obj else slug)
+
+    # This category plus its child categories, so products filed under a
+    # subcategory still appear on the parent category page.
+    cat_slugs = [slug]
+    if cat_obj:
+        cat_slugs += list(Category.objects.filter(parent=cat_obj).values_list('slug', flat=True))
+    cat_slugs = list(dict.fromkeys(cat_slugs))
+
+    context = {
+        'products_json': json.dumps([_product_dict(p, request) for p in products]),
+        'brands_json': json.dumps([_brand_dict(b, request) for b in brands]),
+        'categories_json': json.dumps([_cat_dict(c) for c in categories]),
+        'active_cat': slug,
+        'active_cat_name': cat_name,
+        'active_cat_slugs': json.dumps(cat_slugs),
     }
     return render(request, 'all-products.html', context)
 

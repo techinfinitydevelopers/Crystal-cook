@@ -3,7 +3,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from products.views import index, all_products, product_detail, brands_page, catalogue_page
+from products.views import index, all_products, product_detail, brands_page, catalogue_page, category_page
 from blog.views import blog_list, article_detail
 from enquiry.views import enquiry_page, submit_enquiry
 from core.views import about, career, privacy, terms, contact
@@ -15,6 +15,7 @@ urlpatterns = [
     path('', index, name='home'),
     path('about/', about, name='about'),
     path('products/', all_products, name='all-products'),
+    path('category/<slug:slug>/', category_page, name='category'),
     path('products/<slug:slug>/', product_detail, name='product-detail'),
     path('brands/', brands_page, name='brands'),
     path('catalogue/', catalogue_page, name='catalogue'),
