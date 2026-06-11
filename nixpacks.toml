@@ -1,8 +1,8 @@
 [phases.build]
-cmds = []
+# --skip-checks: Django's model checks (JSONField) open a DB connection,
+# but the /data volume isn't mounted at build time. Skip them here.
+cmds = ["python manage.py collectstatic --no-input --clear --skip-checks"]
 
-[phases.release]
-cmds = ["python manage.py migrate --no-input", "python manage.py collectstatic --no-input --clear"]
-
+# migrate must run at runtime — the /data volume is only mounted then.
 [start]
-cmd = "gunicorn config.wsgi --workers 2 --bind 0.0.0.0:$PORT"
+cmd = "python manage.py migrate --no-input && gunicorn config.wsgi --workers 2 --bind 0.0.0.0:$PORT"
