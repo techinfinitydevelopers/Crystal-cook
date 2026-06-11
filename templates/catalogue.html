@@ -388,53 +388,53 @@
     <h1 data-fade>Browse the <span class="grad">Crystal Catalogue</span></h1>
     <p class="sub" data-fade>Explore our complete range of cookware, kitchenware, cleaning aids and electric appliances across four trusted brands. Download a catalogue or request a tailored quote.</p>
     <div class="row" data-fade>
-      <a href="#" class="btn btn-red" id="heroDownloadBtn">Download PDF <span class="arr">↗</span></a>
-      <a href="Quote.html" class="btn btn-dark">Request Quote</a>
+      <a href="#the-catalogue" class="btn btn-red">View Catalogue <span class="arr">↓</span></a>
+      <a href="/contact/" class="btn btn-dark">Request Quote</a>
     </div>
   </section>
 
-  <!-- ===== BY BRAND ===== -->
-  <section class="sec wrap" id="by-brand">
-    <div class="sec-head">
-      <div>
-        <span class="eyebrow" data-fade><span class="pip"></span>Catalogue by Brand</span>
-        <h2 data-fade style="margin-top:14px">Four brands,<br>one catalogue</h2>
+  <!-- ===== THE CATALOGUE (single) ===== -->
+  <style>
+    #the-catalogue .cat-feature { display: grid; grid-template-columns: minmax(240px, 380px) 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; background: var(--white, #fff); border: 1.5px solid var(--line, rgba(26,24,22,.13)); border-radius: var(--r, 20px); padding: clamp(24px, 4vw, 52px); box-shadow: 0 30px 70px -42px rgba(15,15,15,.4); }
+    #the-catalogue .cat-cover { aspect-ratio: 3/4; border-radius: 16px; background: linear-gradient(150deg, var(--red, #ED3338), #8f1d20); color: #fff; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; padding: clamp(20px,3vw,30px); box-shadow: 0 26px 54px -26px rgba(237,51,56,.6); position: relative; overflow: hidden; }
+    #the-catalogue .cat-cover::before { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 60% at 80% 0, rgba(255,255,255,.20), transparent); }
+    #the-catalogue .cat-cover-brand { font-family: var(--head); font-weight: 700; font-size: clamp(30px, 4vw, 46px); letter-spacing: .04em; line-height: 1; position: relative; }
+    #the-catalogue .cat-cover-title { font-family: var(--head); font-weight: 600; font-size: 18px; opacity: .96; position: relative; }
+    #the-catalogue .cat-cover-yr { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; opacity: .82; position: relative; }
+    #the-catalogue .cat-feature-body h2 { font-size: clamp(28px, 4.4vw, 52px); text-transform: uppercase; margin: 12px 0 14px; }
+    #the-catalogue .cat-feature-body p { color: var(--muted, #5f5f5f); font-size: 16px; line-height: 1.6; max-width: 48ch; margin-bottom: 18px; }
+    #the-catalogue .cat-points { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 0 0 26px; padding: 0; }
+    #the-catalogue .cat-points li { font-weight: 600; font-size: 14.5px; color: var(--ink, #1A1A1A); display: flex; align-items: center; gap: 8px; }
+    #the-catalogue .cat-points li::before { content: "✦"; color: var(--red, #ED3338); }
+    #the-catalogue .row { display: flex; gap: 14px; flex-wrap: wrap; }
+    #the-catalogue .btn-ghost { background: transparent; border: 1.5px solid var(--line, rgba(26,24,22,.18)); color: var(--ink, #1A1A1A); }
+    #the-catalogue .btn-ghost:hover { background: var(--ink, #1A1A1A); color: #fff; transform: translateY(-3px); }
+    @media (max-width: 760px) { #the-catalogue .cat-feature { grid-template-columns: 1fr; } #the-catalogue .cat-cover { max-width: 280px; margin: 0 auto; } #the-catalogue .cat-feature-body { text-align: left; } }
+  </style>
+  <section class="sec wrap" id="the-catalogue">
+    <div class="cat-feature" data-fade>
+      <div class="cat-feature-media">
+        <div class="cat-cover">
+          <span class="cat-cover-brand">CRYSTAL</span>
+          <span class="cat-cover-title">Product Catalogue</span>
+          <span class="cat-cover-yr">2026 · Since 1971</span>
+        </div>
       </div>
-      <p class="lead" data-fade>Every Crystal brand has its own world of products. Pick a brand to view its range or download its catalogue.</p>
-    </div>
-    <div class="brand-grid">
-      <article class="brand-card" data-fade data-brand="crystal">
-        <h3>Crystal</h3>
-        <span class="tag">World of Kitchenware</span>
-        <div class="links">
-          <a href="/products/?brand=crystal">View Products <span>↗</span></a>
-          <a href="#" class="brand-dl-btn" data-brand="crystal">Download <span>↓</span></a>
+      <div class="cat-feature-body">
+        <span class="eyebrow"><span class="pip"></span>The Catalogue</span>
+        <h2>One catalogue,<br>every product.</h2>
+        <p>Our complete range — cookware, kitchenware, cleaning aids and electric appliances — in a single catalogue. Browse the full range online, or download the PDF to share with your team.</p>
+        <ul class="cat-points">
+          <li>Full product range</li>
+          <li>Across four brands</li>
+          <li>Updated 2026</li>
+        </ul>
+        <div class="row">
+          <a href="#" class="btn btn-red" id="mainDownloadBtn">Download PDF <span class="arr">↗</span></a>
+          <a href="/products/" class="btn btn-dark">Browse Online</a>
+          <a href="/contact/" class="btn btn-ghost">Request a Quote</a>
         </div>
-      </article>
-      <article class="brand-card" data-fade data-brand="crystalina">
-        <h3>Crystalina</h3>
-        <span class="tag">Splendid Finish</span>
-        <div class="links">
-          <a href="/products/?brand=crystalina">View Products <span>↗</span></a>
-          <a href="#" class="brand-dl-btn" data-brand="crystalina">Download <span>↓</span></a>
-        </div>
-      </article>
-      <article class="brand-card" data-fade data-brand="sparkmate">
-        <h3>SparkMate</h3>
-        <span class="tag">Cleaning Simplified</span>
-        <div class="links">
-          <a href="/products/?brand=sparkmate">View Products <span>↗</span></a>
-          <a href="#" class="brand-dl-btn" data-brand="sparkmate">Download <span>↓</span></a>
-        </div>
-      </article>
-      <article class="brand-card" data-fade data-brand="valmate">
-        <h3>ValMate</h3>
-        <span class="tag">Value for Money</span>
-        <div class="links">
-          <a href="/products/?brand=valmate">View Products <span>↗</span></a>
-          <a href="#" class="brand-dl-btn" data-brand="valmate">Download <span>↓</span></a>
-        </div>
-      </article>
+      </div>
     </div>
   </section>
 
@@ -554,24 +554,23 @@
 <script>
 (function(){
   var _brands = {{ brands_json|safe }};
-  if (!_brands || !_brands.length) return;
-  document.querySelectorAll('.brand-dl-btn').forEach(function(btn) {
-    var card = btn.closest('[data-brand]');
-    if (!card) return;
-    var slug = card.getAttribute('data-brand');
-    var b = _brands.find(function(x){ return x.slug === slug; });
-    if (!b) return;
-    if (b.catalogue_url) {
-      btn.href = b.catalogue_url;
-      btn.removeAttribute('disabled');
-      btn.style.opacity = '';
-      btn.style.pointerEvents = '';
-    } else {
-      btn.textContent = 'Coming Soon';
-      btn.style.opacity = '0.5';
-      btn.style.pointerEvents = 'none';
-    }
-  });
+  // Use the first available brand catalogue as the single master catalogue.
+  var url = '';
+  if (_brands && _brands.length) {
+    var hit = _brands.find(function(b){ return b.catalogue_url; });
+    if (hit) url = hit.catalogue_url;
+  }
+  var btn = document.getElementById('mainDownloadBtn');
+  if (!btn) return;
+  if (url) {
+    btn.href = url;
+    btn.setAttribute('target', '_blank');
+    btn.setAttribute('rel', 'noopener');
+  } else {
+    btn.innerHTML = 'Catalogue Coming Soon';
+    btn.style.opacity = '0.55';
+    btn.style.pointerEvents = 'none';
+  }
 })();
 </script>
 </body>
