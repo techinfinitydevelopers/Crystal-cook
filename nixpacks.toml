@@ -3,6 +3,6 @@
 # but the /data volume isn't mounted at build time. Skip them here.
 cmds = ["python manage.py collectstatic --no-input --clear --skip-checks"]
 
-# migrate must run at runtime — the /data volume is only mounted then.
+# migrate + seed must run at runtime — the /data volume is only mounted then.
 [start]
-cmd = "python manage.py migrate --no-input && gunicorn config.wsgi --workers 2 --bind 0.0.0.0:$PORT"
+cmd = "python manage.py migrate --no-input && python manage.py ensure_seed && gunicorn config.wsgi --workers 2 --bind 0.0.0.0:$PORT"

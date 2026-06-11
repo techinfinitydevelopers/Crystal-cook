@@ -2,7 +2,6 @@
 builder = "nixpacks"
 
 [deploy]
-preDeployCommand = "python manage.py migrate --no-input && python manage.py loaddata wp_products"
-startCommand = "gunicorn config.wsgi --workers 2 --bind 0.0.0.0:$PORT"
+startCommand = "python manage.py migrate --no-input && python manage.py ensure_seed && gunicorn config.wsgi --workers 2 --bind 0.0.0.0:$PORT"
 healthcheckPath = "/"
 restartPolicyType = "on_failure"
