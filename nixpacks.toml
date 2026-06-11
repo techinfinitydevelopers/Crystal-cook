@@ -1,0 +1,8 @@
+[phases.build]
+cmds = []
+
+[phases.release]
+cmds = ["python manage.py migrate --no-input", "python manage.py collectstatic --no-input --clear"]
+
+[start]
+cmd = "gunicorn config.wsgi --workers 2 --bind 0.0.0.0:$PORT"
