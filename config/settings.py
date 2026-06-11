@@ -34,11 +34,16 @@ if _pa_host and _pa_host not in ALLOWED_HOSTS:
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3456',
     'http://127.0.0.1:3456',
+    'https://*.up.railway.app',
+    'https://*.railway.app',
 ]
 if _railway_domain:
     CSRF_TRUSTED_ORIGINS.append(f'https://{_railway_domain}')
 if _pa_host:
     CSRF_TRUSTED_ORIGINS.append(f'https://{_pa_host}')
+
+# Behind Railway's HTTPS proxy — trust the forwarded protocol header
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 INSTALLED_APPS = [
     'jazzmin',

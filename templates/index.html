@@ -886,21 +886,21 @@
     { q: "Built for the Way India Cooks", date: "8 February, 2026", img: "2026/04/10.jpg", slug: "built-for-the-way-india-cooks" },
     { q: "Why Triply Cookware is a Smart Choice", date: "8 January, 2026", img: "2026/04/11.jpg", slug: "why-triply-cookware-is-a-smart-choice" },
     { q: "Everyday Cooking Made Effortless", date: "8 December, 2025", img: "2026/04/13.jpg", slug: "everyday-cooking-made-effortless" },
+  ];
 
-<script>
-// Live data from Django
-(function(){
-  var _brands = {{ brands_json|safe }};
-  var _featured = {{ featured_json|safe }};
-  if (_brands && _brands.length) {
-    BRANDS = {};
-    _brands.forEach(function(b){ BRANDS[b.slug] = b; });
-  }
-  if (_featured && _featured.length) {
-    P = _featured;
-  }
-})();
-</script>
+  // Live data from Django
+  (function(){
+    var _brands = {{ brands_json|safe }};
+    var _featured = {{ featured_json|safe }};
+    if (_brands && _brands.length) {
+      BRANDS = {};
+      _brands.forEach(function(b){ BRANDS[b.slug] = b; });
+    }
+    if (_featured && _featured.length) {
+      P = _featured;
+    }
+  })();
+
   function renderBlogPosts(posts) {
     document.getElementById("tstTrack").innerHTML = posts.map((t, i) => {
       const img = t.featured_image || (t.img ? U + t.img : '');
