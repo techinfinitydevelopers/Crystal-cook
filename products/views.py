@@ -164,9 +164,27 @@ def product_detail(request, slug):
         ),
         slug=slug, is_active=True
     )
-    related = Product.objects.filter(
-        category=product.category, is_active=True
-    ).exclude(id=product.id).select_related('brand', 'category')[:4]
+    # Related products: same category first, then sibling categories (same
+    # parent), then same brand, then anything — so it's never empty/dummy.
+    related, seen = [], {product.id}
+
+    def _take(qs):
+        for p in qs.select_related('brand', 'category'):
+            if p.id not in seen:
+                seen.add(p.id)
+                related.append(p)
+                if len(related) >= 4:
+                    return True
+        return False
+
+    base = Product.objects.filter(is_active=True).exclude(id=product.id)
+    done = _take(base.filter(category=product.category))
+    if not done and product.category and product.category.parent_id:
+        done = _take(base.filter(category__parent_id=product.category.parent_id))
+    if not done and product.brand_id:
+        done = _take(base.filter(brand_id=product.brand_id))
+    if not done:
+        _take(base)
 
     context = {
         'product_json': json.dumps(_product_detail_dict(product, request)),

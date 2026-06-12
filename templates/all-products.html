@@ -185,6 +185,13 @@
   .browse-bar .count { font-size: 14px; color: var(--muted); font-weight: 600; }
   .browse-bar .count b { color: var(--ink); }
   .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 26px; }
+  .pager { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; margin-top: clamp(34px, 5vw, 56px); }
+  .pager:empty { display: none; }
+  .pager button { font-family: var(--head); font-weight: 700; font-size: 14px; min-width: 42px; height: 42px; padding: 0 12px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .2s; }
+  .pager button:hover:not(:disabled):not(.on) { border-color: var(--ink); transform: translateY(-2px); }
+  .pager button.on { background: var(--grad-red); color: #fff; border-color: transparent; }
+  .pager button:disabled { opacity: .4; cursor: not-allowed; }
+  .pager .pager-gap { color: var(--muted); font-weight: 700; padding: 0 2px; }
   .chip { font-family: var(--body); font-weight: 600; font-size: 14px; padding: 10px 18px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .2s; }
   .chip:hover { transform: translateY(-2px); border-color: rgba(237,51,56,0.4); }
   .chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
@@ -422,6 +429,7 @@
     </div>
     <div class="chips" id="chips"></div>
     <div class="grid" id="grid"></div>
+    <nav class="pager" id="pager" aria-label="Product pages"></nav>
   </div>
 </section>
 
@@ -468,38 +476,7 @@
 </section>
 
 <!-- ===== FOOTER ===== -->
-<footer class="sec-dark" id="footer">
-  <div class="wrap">
-    <div class="foot-cta">
-      <div>
-        <span class="eyebrow"><span class="pip"></span>Get in touch</span>
-        <h3>Bring <span class="g">Crystal</span> into<br>every corner of your home.</h3>
-      </div>
-      <a href="mailto:sales@crystalcook.com" class="btn btn-red">sales@crystalcook.com <span class="arr">↗</span></a>
-    </div>
-    <div class="foot-top">
-      <div class="foot-brand">
-        <div class="logo"><img src="{% static 'logo-footer.png' %}" alt="CRYSTAL" style="height:36px;width:auto;display:block;"></div>
-        <p class="foot-desc">Complete Kitchen and Home Solutions — crafted for everyday ease, built on trust.</p>
-        <div class="foot-socials">
-          <a href="https://www.instagram.com/crystalcooknserve" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
-          <a href="https://www.facebook.com/share/1HMc4pSziY/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1 .5-2 2-2h2V2h-3c-3 0-5 2-5 5v3H6v4h3v8z"></path></svg></a>
-          <a href="https://www.linkedin.com/company/crystal-cook-and-serve-products-pvt-ltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.5a2 2 0 100 4 2 2 0 000-4zM3 9h3v12H3zM9 9h3v1.7c.5-.9 1.7-1.9 3.5-1.9 3 0 4.5 2 4.5 5.3V21h-3v-6c0-1.6-.6-2.7-2-2.7s-2.2 1-2.2 2.6V21H9z"></path></svg></a>
-          <a href="https://youtube.com/@crystalcooknserve" target="_blank" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 00-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 002.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 001.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 001.8-1.8C22 15 22 12 22 12zm-12 3V9l5 3z"></path></svg></a>
-        </div>
-      </div>
-      <div class="foot-col"><h5>Brands</h5><ul id="footBrands"></ul></div>
-      <div class="foot-col">
-        <h5>Products</h5>
-        <ul><li><a href="/category/cookware/">Cookware</a></li><li><a href="/category/kitchenware/">Kitchenware</a></li><li><a href="/category/cleaning/">Cleaning Aid</a></li><li><a href="/category/appliances/">Electric Appliances</a></li></ul>
-      </div>
-      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="/about/">About Us</a></li><li><a href="/catalogue/">Catalogue</a></li><li><a href="/blog/">Knowledge Centre</a></li><li><a href="/career/">Career</a></li></ul></div>
-      <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
-    </div>
-    <div class="foot-wordmark"><span class="wm-outline">CRYSTAL</span><span class="wm-fill">CRYSTAL</span></div>
-    <div class="foot-bottom"><span>© 2026 Crystal. All rights reserved. Designed & Developed by <a href="https://techinfinity.io" target="_blank" style="color:inherit;text-decoration:underline;">TechInfinity</a>.</span><span><a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms &amp; Condition</a></span></div>
-  </div>
-</footer>
+{% include "partials/_footer.html" %}
 
 <script>
   const RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -685,7 +662,9 @@
   /* ---------- GRID state + render ---------- */
   const gridEl = document.getElementById("grid");
   const countEl = document.getElementById("count");
-  let state = { cat: "all", col: "", sort: "featured", cats: null, subLabel: "", subText: "" };
+  const pagerEl = document.getElementById("pager");
+  const PAGE_SIZE = 24;
+  let state = { cat: "all", col: "", sort: "featured", cats: null, subLabel: "", subText: "", page: 1 };
 
   function brandName(slug) { return (BRAND_BY[slug] || {}).name || slug; }
 
@@ -700,13 +679,26 @@
     else if (state.sort === "brand") list.sort((a, b) => brandName(a.b).localeCompare(brandName(b.b)) || a.n.localeCompare(b.n));
 
     const label = state.subLabel || (state.col ? state.col : (state.cat !== "all" ? CAT_LABEL[state.cat] : ""));
-    countEl.innerHTML = `Showing <b>${list.length}</b> of <b>${viewProducts.length}</b> products${label ? " in <b>" + label + "</b>" : ""}`;
+    const total = list.length;
 
-    if (!list.length) {
+    if (!total) {
+      countEl.innerHTML = `Showing <b>0</b> products${label ? " in <b>" + label + "</b>" : ""}`;
       gridEl.innerHTML = `<div class="empty">No products in this category yet.<br>Try another category.</div>`;
+      pagerEl.innerHTML = "";
       return;
     }
-    gridEl.innerHTML = list.map(p => `
+
+    // pagination
+    const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+    if (state.page > pages) state.page = pages;
+    if (state.page < 1) state.page = 1;
+    const start = (state.page - 1) * PAGE_SIZE;
+    const end = Math.min(start + PAGE_SIZE, total);
+    const pageItems = list.slice(start, end);
+
+    countEl.innerHTML = `Showing <b>${start + 1}–${end}</b> of <b>${total}</b> products${label ? " in <b>" + label + "</b>" : ""}`;
+
+    gridEl.innerHTML = pageItems.map(p => `
       <div class="pcard">
         <a class="pc-go" href="${pdpHref(p)}">
           <div class="pimg">
@@ -725,13 +717,40 @@
         </div>
       </div>`).join("");
 
+    renderPager(pages);
+
     if (animate && window.gsap && !RM) {
       gsap.from(".pcard", { y: 30, opacity: 0, duration: 0.5, stagger: 0.045, ease: "power2.out", overwrite: true });
     }
   }
 
+  function renderPager(pages) {
+    if (pages <= 1) { pagerEl.innerHTML = ""; return; }
+    const cur = state.page, parts = [], nums = [];
+    parts.push(`<button data-pg="${cur - 1}" ${cur === 1 ? "disabled" : ""} aria-label="Previous page">‹</button>`);
+    for (let i = 1; i <= pages; i++) {
+      if (i === 1 || i === pages || (i >= cur - 1 && i <= cur + 1)) nums.push(i);
+      else if (nums[nums.length - 1] !== "…") nums.push("…");
+    }
+    nums.forEach(n => parts.push(n === "…"
+      ? `<span class="pager-gap">…</span>`
+      : `<button data-pg="${n}" class="${n === cur ? "on" : ""}" aria-label="Page ${n}"${n === cur ? ' aria-current="page"' : ""}>${n}</button>`));
+    parts.push(`<button data-pg="${cur + 1}" ${cur === pages ? "disabled" : ""} aria-label="Next page">›</button>`);
+    pagerEl.innerHTML = parts.join("");
+  }
+
+  pagerEl.addEventListener("click", e => {
+    const b = e.target.closest("button[data-pg]");
+    if (!b || b.disabled) return;
+    const pg = parseInt(b.dataset.pg, 10);
+    if (!pg || pg === state.page) return;
+    state.page = pg;
+    applyAndRender(true);
+    document.getElementById("browse").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
   function setCat(cat) {
-    state.cat = cat; state.col = "";
+    state.cat = cat; state.col = ""; state.page = 1;
     document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === cat));
     applyAndRender(true);
   }
@@ -751,11 +770,12 @@
     let f = {}; try { f = JSON.parse(card.dataset.col); } catch (_) {}
     state.cat = f.c || "all";
     state.col = f.col || "";
+    state.page = 1;
     document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === state.cat));
     applyAndRender(true);
     document.getElementById("browse").scrollIntoView({ behavior: "smooth", block: "start" });
   });
-  document.getElementById("sortSel").addEventListener("change", e => { state.sort = e.target.value; applyAndRender(true); });
+  document.getElementById("sortSel").addEventListener("change", e => { state.sort = e.target.value; state.page = 1; applyAndRender(true); });
 
   applyAndRender(false);
 
@@ -814,6 +834,7 @@
     }
     state.subLabel = (showSub && subLabel) ? parentLabel + " · " + subLabel : (cats.length !== 1 ? parentLabel : "");
 
+    state.page = 1;
     document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === (state.cats ? "all" : state.cat)));
     applyAndRender(false);
     // Only auto-scroll for in-page deep links (?cat=); clean /category/ pages start at the hero
@@ -901,9 +922,6 @@
       gsap.from(el, { y: 36, opacity: 0, duration: 0.65, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } });
     });
 
-    gsap.fromTo(".foot-wordmark .wm-fill", { "--level": "0%" }, { "--level": "112%", ease: "none", scrollTrigger: { trigger: ".foot-wordmark", start: "top 92%", end: "bottom 78%", scrub: 0.6 } });
-    gsap.to(".foot-wordmark .wm-fill", { "--wavex": "-160px", duration: 2.6, ease: "none", repeat: -1 });
-    gsap.to(".foot-wordmark .wm-fill", { "--wavex2": "-200px", duration: 4, ease: "none", repeat: -1 });
 
     ScrollTrigger.refresh();
   }
@@ -1052,7 +1070,7 @@
   addEventListener("load", () => setTimeout(refresh, 200));
 })();
 </script>
-<script src="{% static 'js/enquiry.js' %}?v=5"></script>
+<script src="{% static 'js/enquiry.js' %}?v=7"></script>
 </body>
 </html>
 

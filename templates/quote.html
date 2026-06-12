@@ -705,9 +705,6 @@
       if (el.closest("#hero")) return;
       gsap.from(el, { y: 34, opacity: 0, duration: 0.65, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } });
     });
-    gsap.fromTo(".foot-wordmark .wm-fill", { "--level": "0%" }, { "--level": "112%", ease: "none", scrollTrigger: { trigger: ".foot-wordmark", start: "top 92%", end: "bottom 78%", scrub: 0.6 } });
-    gsap.to(".foot-wordmark .wm-fill", { "--wavex": "-160px", duration: 2.6, ease: "none", repeat: -1 });
-    gsap.to(".foot-wordmark .wm-fill", { "--wavex2": "-200px", duration: 4, ease: "none", repeat: -1 });
     ScrollTrigger.refresh();
   }
   if (!RM) { try { initGSAP(); } catch (e) { console.warn("GSAP", e); } }
