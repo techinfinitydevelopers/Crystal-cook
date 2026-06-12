@@ -418,6 +418,34 @@
   document.getElementById("burger").addEventListener("click", () => mm2.classList.add("open"));
   document.getElementById("mmClose").addEventListener("click", () => mm2.classList.remove("open"));
   document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mm2.classList.remove("open")));
+
+  /* ---------- REAL ARTICLE DATA (from Django; overrides the fallback) ---------- */
+  (function () {
+    var p = {{ post_json|safe }};
+    if (!p || !p.slug) return;
+    var rel = {{ related_json|safe }};
+    document.title = "CRYSTAL — " + p.title;
+    var setText = function (id, v) { var el = document.getElementById(id); if (el) el.textContent = v || ""; };
+    setText("crumbTitle", p.title);
+    setText("artTag", p.category || "");
+    setText("artTitle", p.title);
+    setText("artDate", p.published_at || "");
+    var hero = document.getElementById("artHero");
+    if (hero && p.featured_image) hero.setAttribute("src", p.featured_image);
+    var body = document.getElementById("artBody");
+    if (body) body.innerHTML = p.content || ("<p>" + (p.excerpt || "") + "</p>");
+    if (rel && rel.length) {
+      document.getElementById("relatedTrack").innerHTML = rel.map(function (r) {
+        return '<article class="tst-card">' +
+          '<div class="ph"><img src="' + (r.featured_image || '') + '" alt="' + (r.title || '').replace(/"/g, '&quot;') + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>' +
+          '<span class="tag">' + (r.category || '') + '</span>' +
+          '<h3 class="q">' + (r.title || '') + '</h3>' +
+          '<div class="date">' + (r.published_at || '') + '</div>' +
+          '<p class="excerpt">' + (r.excerpt || '') + '</p>' +
+          '<a href="/blog/' + r.slug + '/" class="at">Read More <span>&rarr;</span></a></article>';
+      }).join("");
+    }
+  })();
 </script>
 <script src="{% static 'js/enquiry.js' %}?v=7"></script>
 </body>

@@ -1,0 +1,258 @@
+[
+{
+  "model": "blog.blogcategory",
+  "pk": 1,
+  "fields": {
+    "name": "Uncategorized",
+    "slug": "uncategorized"
+  }
+},
+{
+  "model": "blog.blogcategory",
+  "pk": 2,
+  "fields": {
+    "name": "Crystal",
+    "slug": "crystal"
+  }
+},
+{
+  "model": "blog.blogcategory",
+  "pk": 3,
+  "fields": {
+    "name": "Crystalina",
+    "slug": "crystalina"
+  }
+},
+{
+  "model": "blog.blogcategory",
+  "pk": 4,
+  "fields": {
+    "name": "Valmate",
+    "slug": "valmate"
+  }
+},
+{
+  "model": "blog.blogcategory",
+  "pk": 5,
+  "fields": {
+    "name": "Sparkmate",
+    "slug": "sparkmate"
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 1,
+  "fields": {
+    "title": "Built for the Way India Cooks",
+    "slug": "built-for-the-way-india-cooks",
+    "excerpt": "Indian cooking is as diverse as it is demanding. From high-heat tadkas to slow-cooked gravies, every dish requires cookware that can adapt to different techniques and temperatures. This is where thoughtfully designed cookware makes a difference. It needs to be versatile enough to handle everyday variety, while also being durable enough to withstand regular use. […]",
+    "content": "\n<p class=\"wp-block-paragraph\">Indian cooking is as diverse as it is demanding. From high-heat tadkas to slow-cooked gravies, every dish requires cookware that can adapt to different techniques and temperatures.</p>\n\n\n\n<p class=\"wp-block-paragraph\">This is where thoughtfully designed cookware makes a difference. It needs to be versatile enough to handle everyday variety, while also being durable enough to withstand regular use.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Crystal cookware is built with a deep understanding of Indian kitchens. Every product is designed to support real cooking habits practical, sturdy, and easy to use across multiple dishes.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Whether you’re making rotis, sabzis, dals, or curries, the cookware adapts to your needs without complication.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because good cookware doesn’t just cook well it understands how you cook.</p>\n",
+    "featured_image": "",
+    "image_url": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/03-Trusted-Indian-Brand-Heritage.jpg",
+    "author": "Team Crystal",
+    "category": 2,
+    "is_published": true,
+    "published_at": "2026-02-08T05:25:50Z",
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 2,
+  "fields": {
+    "title": "Why Triply Cookware is a Smart Choice",
+    "slug": "why-triply-cookware-is-a-smart-choice",
+    "excerpt": "As cooking evolves, so does cookware. More home kitchens today are moving towards smarter, more efficient solutions and triply cookware is becoming a popular choice for exactly that reason.",
+    "content": "\n<p class=\"wp-block-paragraph\">As cooking evolves, so does cookware. More home kitchens today are moving towards smarter, more efficient solutions and triply cookware is becoming a popular choice for exactly that reason.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Triply cookware is made with three layers stainless steel on the inside, an aluminium core in the middle, and stainless steel on the outside. This combination ensures faster and more even heat distribution, reducing hotspots and improving cooking control.</p>\n\n\n\n<p class=\"wp-block-paragraph\">For Indian cooking, this makes a noticeable difference. Whether you’re preparing curries, dals, or sautéed dishes, the heat spreads evenly, helping food cook more consistently and often more quickly.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Another key advantage is durability. Triply cookware is designed to last longer, maintain its shape, and deliver steady performance over time, making it a reliable upgrade from regular cookware.</p>\n\n\n\n<p class=\"wp-block-paragraph\">With the right balance of performance and practicality, triply cookware helps you cook better—every single day.</p>\n",
+    "featured_image": "",
+    "image_url": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/02-Crystal-Kadhai.jpg",
+    "author": "Team Crystal",
+    "category": 2,
+    "is_published": true,
+    "published_at": "2026-01-08T04:52:08Z",
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 3,
+  "fields": {
+    "title": "Everyday Cooking Made Effortless",
+    "slug": "everyday-cooking-made-effortless",
+    "excerpt": "In every Indian home, cooking is more than just a routine it’s a rhythm that shapes the day. From early morning chai to late-night dinners, the kitchen is always in motion, and the tools you use play a quiet but important role in keeping things smooth. What makes everyday cooking easier is cookware that works […]",
+    "content": "\n<p class=\"wp-block-paragraph\">In every Indian home, cooking is more than just a routine it’s a rhythm that shapes the day. From early morning chai to late-night dinners, the kitchen is always in motion, and the tools you use play a quiet but important role in keeping things smooth.</p>\n\n\n\n<p class=\"wp-block-paragraph\">What makes everyday cooking easier is cookware that works with you, not against you. When heat spreads evenly and handling feels natural, even the simplest meals become quicker and more enjoyable to prepare.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Crystal cookware is designed keeping these everyday moments in mind. It focuses on consistency, ease, and reliability helping you move through your cooking routine without unnecessary effort or interruptions.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Whether it’s a quick weekday meal or something more elaborate, the right cookware ensures that your focus stays on the food, not the process.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because when cooking feels effortless, it becomes something you look forward to every day.</p>\n",
+    "featured_image": "",
+    "image_url": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/01-Crystal-Cooker.jpg",
+    "author": "Team Crystal",
+    "category": 2,
+    "is_published": true,
+    "published_at": "2025-12-08T04:51:35Z",
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 4,
+  "fields": {
+    "title": "Splendid Finish, Superior Experience",
+    "slug": "splendid-finish-superior-experience",
+    "excerpt": "In a modern kitchen, cooking is as much about experience as it is about results. The tools you use every day contribute to how smooth, enjoyable, and efficient that experience feels. Crystalina is built around the idea of splendid finish and premium quality. Each tool is crafted with attention to detail—offering smooth finishes, refined designs, […]",
+    "content": "\n<p class=\"wp-block-paragraph\">In a modern kitchen, cooking is as much about experience as it is about results. The tools you use every day contribute to how smooth, enjoyable, and efficient that experience feels.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Crystalina is built around the idea of <strong>splendid finish and premium quality</strong>. Each tool is crafted with attention to detail—offering smooth finishes, refined designs, and a polished look that stands out.</p>\n\n\n\n<p class=\"wp-block-paragraph\">But it’s not just about appearance. These tools are designed to perform effortlessly, with comfortable handling and reliable functionality that supports everyday tasks.</p>\n\n\n\n<p class=\"wp-block-paragraph\">This balance of elegance and efficiency transforms even simple kitchen activities into more enjoyable moments.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because when quality meets design, every detail feels just right.</p>\n",
+    "featured_image": "",
+    "image_url": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/04-Crystalina-Knife.jpg",
+    "author": "Team Crystal",
+    "category": 3,
+    "is_published": true,
+    "published_at": "2025-11-08T05:27:49Z",
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 5,
+  "fields": {
+    "title": "Elevate Your Kitchen, One Tool at a Time",
+    "slug": "elevate-your-kitchen-one-tool-at-a-time",
+    "excerpt": "Today’s kitchens are not just functional spaces—they reflect personal style and lifestyle. Clean layouts, organised counters, and thoughtfully chosen tools define a modern cooking environment. Crystalina brings together aesthetics and performance in a way that fits seamlessly into this space. Its tools are designed to look elegant while delivering consistent functionality. From preparation to serving, […]",
+    "content": "\n<p class=\"wp-block-paragraph\">Today’s kitchens are not just functional spaces—they reflect personal style and lifestyle. Clean layouts, organised counters, and thoughtfully chosen tools define a modern cooking environment.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Crystalina brings together aesthetics and performance in a way that fits seamlessly into this space. Its tools are designed to look elegant while delivering consistent functionality.</p>\n\n\n\n<p class=\"wp-block-paragraph\">From preparation to serving, each product adds a subtle sense of sophistication. It’s about creating a kitchen that feels as good as it looks.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Over time, these details elevate the overall experience of cooking and hosting.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because a well-designed kitchen isn’t built overnight—it’s shaped, one tool at a time.</p>\n",
+    "featured_image": "",
+    "image_url": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/05-Crystalina-Garlic-Squeezer.jpg",
+    "author": "Team Crystal",
+    "category": 3,
+    "is_published": true,
+    "published_at": "2025-10-08T05:29:58Z",
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 6,
+  "fields": {
+    "title": "Why Good Kitchen Tools Matter More Than You Think",
+    "slug": "why-good-kitchen-tools-matter-more-than-you-think",
+    "excerpt": "Cooking isn’t just about ingredients—it’s about how you prepare them. The tools you use can either simplify the process or make it unnecessarily difficult. A well-crafted tool allows for better control, precision, and comfort. Whether it’s slicing, mixing, or serving, the right design can significantly reduce effort and improve efficiency. Crystalina’s range of kitchen accessories […]",
+    "content": "\n<p class=\"wp-block-paragraph\">Cooking isn’t just about ingredients—it’s about how you prepare them. The tools you use can either simplify the process or make it unnecessarily difficult.</p>\n\n\n\n<p class=\"wp-block-paragraph\">A well-crafted tool allows for better control, precision, and comfort. Whether it’s slicing, mixing, or serving, the right design can significantly reduce effort and improve efficiency.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Crystalina’s range of kitchen accessories is built with this understanding. Each product is designed to support everyday tasks with ease, ensuring that preparation feels seamless rather than tiring.</p>\n\n\n\n<p class=\"wp-block-paragraph\">It also brings a sense of refinement to your kitchen. Tools that look good and work well add to the overall experience of cooking.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because when your tools are better, everything else follows.</p>\n",
+    "featured_image": "",
+    "image_url": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/06-Crystalina-Peeler.jpg",
+    "author": "Team Crystal",
+    "category": 3,
+    "is_published": true,
+    "published_at": "2025-09-08T05:30:56Z",
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 7,
+  "fields": {
+    "title": "Smart Cleaning for Modern Homes",
+    "slug": "smart-cleaning-for-modern-homes",
+    "excerpt": "Modern homes demand smarter solutions. With fast-paced lifestyles and limited time, cleaning tools need to be efficient, practical, and easy to integrate into daily routines. Sparkmate is built to meet these expectations. Its products are designed to simplify cleaning tasks while delivering effective results, helping you maintain your home without spending excessive time or effort. […]",
+    "content": "\n<p class=\"wp-block-paragraph\">Modern homes demand smarter solutions. With fast-paced lifestyles and limited time, cleaning tools need to be efficient, practical, and easy to integrate into daily routines.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Sparkmate is built to meet these expectations. Its products are designed to simplify cleaning tasks while delivering effective results, helping you maintain your home without spending excessive time or effort.</p>\n\n\n\n<p class=\"wp-block-paragraph\">In today’s homes, versatility matters. Cleaning tools that can adapt to multiple uses make routines simpler and more efficient. Sparkmate focuses on creating solutions that work across different spaces, reducing the need for multiple products.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Durability is equally important. Tools that last longer and perform consistently reduce the need for frequent replacements, making them a practical choice for everyday use.</p>\n\n\n\n<p class=\"wp-block-paragraph\">By combining simplicity, efficiency, and reliability, Sparkmate helps make cleaning a smoother part of your daily life.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because modern homes deserve cleaning solutions that keep up with modern living.</p>\n",
+    "featured_image": "",
+    "image_url": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/12-Sparkmate-Spin-Mop.jpg",
+    "author": "Team Crystal",
+    "category": 5,
+    "is_published": true,
+    "published_at": "2025-09-08T05:38:00Z",
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 8,
+  "fields": {
+    "title": "Everyday Hygiene Starts at Home",
+    "slug": "everyday-hygiene-starts-at-home",
+    "excerpt": "A clean home is essential for a healthy and comfortable lifestyle. Daily habits like wiping surfaces, cleaning floors, and maintaining kitchen hygiene play a big role in creating a space that feels safe and welcoming. Sparkmate supports these everyday habits by offering tools that are designed for regular use. Whether it’s small touch-ups or more […]",
+    "content": "\n<p class=\"wp-block-paragraph\">A clean home is essential for a healthy and comfortable lifestyle. Daily habits like wiping surfaces, cleaning floors, and maintaining kitchen hygiene play a big role in creating a space that feels safe and welcoming.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Sparkmate supports these everyday habits by offering tools that are designed for regular use. Whether it’s small touch-ups or more thorough cleaning sessions, having reliable tools makes it easier to maintain consistency.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Consistency is what truly defines cleanliness. It’s not about occasional deep cleaning, but about maintaining hygiene through small, regular efforts. The right tools help make these efforts easier to sustain over time.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Another benefit is the sense of comfort that comes with a clean environment. When your home is well-maintained, it not only looks better but also feels more organised and stress-free.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Sparkmate fits seamlessly into this routine, helping you maintain cleanliness without adding complexity.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because a healthier home isn’t built in a day—it’s maintained every day.</p>\n",
+    "featured_image": "",
+    "image_url": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/11-Multi-Utility-Bin.jpg",
+    "author": "Team Crystal",
+    "category": 5,
+    "is_published": true,
+    "published_at": "2025-08-08T05:37:05Z",
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 9,
+  "fields": {
+    "title": "Cleaning Made Simple, Every Day",
+    "slug": "cleaning-made-simple-every-day",
+    "excerpt": "Keeping your home clean is an ongoing task, but it doesn’t have to feel overwhelming. With the right approach and the right tools, even daily cleaning can become quick, efficient, and manageable. Sparkmate is designed to simplify these everyday routines. Its range of cleaning tools focuses on practicality—helping you handle regular tasks like wiping surfaces, […]",
+    "content": "\n<p class=\"wp-block-paragraph\">Keeping your home clean is an ongoing task, but it doesn’t have to feel overwhelming. With the right approach and the right tools, even daily cleaning can become quick, efficient, and manageable.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Sparkmate is designed to simplify these everyday routines. Its range of cleaning tools focuses on practicality—helping you handle regular tasks like wiping surfaces, cleaning spills, and maintaining hygiene without unnecessary effort. The idea is simple: make cleaning easier so it becomes a natural part of your day.</p>\n\n\n\n<p class=\"wp-block-paragraph\">In busy households, time is always limited. Having tools that are easy to use and effective can make a noticeable difference. Whether it’s a quick clean-up after cooking or a regular wipe-down of surfaces, the right tools help you get the job done faster.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Another important factor is comfort. Cleaning shouldn’t feel tiring or complicated. Sparkmate products are designed to be user-friendly, making everyday tasks smoother and less demanding.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Over time, these small improvements help build consistent cleaning habits that keep your home looking fresh and well-maintained.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because when cleaning is simple, it becomes easier to do it every day.</p>\n",
+    "featured_image": "",
+    "image_url": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/10-Sparkmate-Jhadu.jpg",
+    "author": "Team Crystal",
+    "category": 5,
+    "is_published": true,
+    "published_at": "2025-07-08T05:35:52Z",
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 10,
+  "fields": {
+    "title": "Everyday Cooking for Real Homes",
+    "slug": "everyday-cooking-for-real-homes",
+    "excerpt": "In most households, cooking is not occasional—it’s constant. Meals are prepared daily, often multiple times, and the kitchen becomes one of the busiest spaces in the home. In such environments, cookware needs to be practical, durable, and easy to rely on. Valmate is built specifically for these real-life conditions. It doesn’t aim to overcomplicate cooking […]",
+    "content": "\n<p class=\"wp-block-paragraph\">In most households, cooking is not occasional—it’s constant. Meals are prepared daily, often multiple times, and the kitchen becomes one of the busiest spaces in the home. In such environments, cookware needs to be practical, durable, and easy to rely on.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Valmate is built specifically for these real-life conditions. It doesn’t aim to overcomplicate cooking with features you may not need. Instead, it focuses on creating products that are sturdy, functional, and ready for regular use.</p>\n\n\n\n<p class=\"wp-block-paragraph\">From quick weekday meals to larger portions for families, Valmate cookware is designed to handle a variety of cooking needs. It supports different dishes and cooking styles without requiring extra effort or special handling.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Another advantage lies in its straightforward usability. There’s no learning curve—just simple, effective cookware that fits naturally into your routine. This makes it especially useful for households where efficiency matters the most.</p>\n\n\n\n<p class=\"wp-block-paragraph\">The strength of Valmate lies in its ability to keep up with everyday demands without compromise.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because real kitchens need solutions that work consistently, day after day.</p>\n",
+    "featured_image": "",
+    "image_url": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/09-Valmate-Lighter.jpg",
+    "author": "Team Crystal",
+    "category": 4,
+    "is_published": true,
+    "published_at": "2025-06-08T05:34:32Z",
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 11,
+  "fields": {
+    "title": "Value That Makes Sense",
+    "slug": "value-that-makes-sense",
+    "excerpt": "When it comes to everyday cooking, the goal is simple—get the job done efficiently without overspending. Not every kitchen needs premium products, but every kitchen needs reliable ones. Valmate is built around this idea of value for money. It offers cookware that delivers essential performance at a price point that makes sense for everyday households. […]",
+    "content": "\n<p class=\"wp-block-paragraph\">When it comes to everyday cooking, the goal is simple—get the job done efficiently without overspending. Not every kitchen needs premium products, but every kitchen needs reliable ones.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Valmate is built around this idea of <strong>value for money</strong>. It offers cookware that delivers essential performance at a price point that makes sense for everyday households.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Its products are designed to handle routine cooking tasks with ease, from preparing simple meals to managing larger quantities. This makes them ideal for families and individuals who cook regularly and need dependable solutions.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Another key advantage is accessibility. Valmate ensures that quality cookware is within reach, making it easier for more households to build a functional kitchen without stretching their budget.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Over time, this practicality becomes its biggest strength—products that work consistently, require minimal effort, and offer long-term usability.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because real value isn’t just about saving money—it’s about making every purchase count.</p>\n",
+    "featured_image": "",
+    "image_url": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/08-Valmate-Chopper.jpg",
+    "author": "Team Crystal",
+    "category": 4,
+    "is_published": true,
+    "published_at": "2025-05-08T05:33:42Z",
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 12,
+  "fields": {
+    "title": "Smart Cooking Starts with Smart Choices",
+    "slug": "smart-cooking-starts-with-smart-choices",
+    "excerpt": "A well-functioning kitchen doesn’t depend on expensive products—it depends on making the right choices. In everyday cooking, what truly matters is reliability, ease of use, and tools that support your routine without adding complexity. Valmate is designed with this understanding. It focuses on creating cookware that delivers essential performance while remaining accessible to a wide […]",
+    "content": "\n<p class=\"wp-block-paragraph\">A well-functioning kitchen doesn’t depend on expensive products—it depends on making the right choices. In everyday cooking, what truly matters is reliability, ease of use, and tools that support your routine without adding complexity.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Valmate is designed with this understanding. It focuses on creating cookware that delivers essential performance while remaining accessible to a wide range of households. Instead of unnecessary features, it prioritises what actually matters in daily use—strength, simplicity, and consistency.</p>\n\n\n\n<p class=\"wp-block-paragraph\">In busy homes, cooking often needs to be quick and efficient. Whether it’s preparing breakfast before work or putting together a full meal for the family, dependable cookware plays a crucial role in saving time and effort. Valmate products are built to support these moments without slowing you down.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Another important aspect is ease of maintenance. Cookware that is simple to clean and handle makes a noticeable difference in everyday routines. Valmate ensures that its products remain practical not just during cooking, but after it as well.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Over time, these small advantages add up, making your kitchen more efficient and your cooking experience more comfortable.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because smart cooking doesn’t start with spending more—it starts with choosing better.</p>\n",
+    "featured_image": "",
+    "image_url": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/07-Valmate-Knife.jpg",
+    "author": "Team Crystal",
+    "category": 4,
+    "is_published": true,
+    "published_at": "2025-04-08T05:32:00Z",
+    "meta_title": "",
+    "meta_description": ""
+  }
+}
+]

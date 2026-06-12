@@ -306,7 +306,7 @@
 
   // Use Django-injected data if available, else fallback
   (function() {
-    var djangoBlogs = window.__DJANGO_BLOGS;
+    var djangoBlogs = {{ blogs_json|safe }};
     if (djangoBlogs && djangoBlogs.length) {
       renderArticles(djangoBlogs);
     } else {

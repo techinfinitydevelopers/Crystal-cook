@@ -24,6 +24,7 @@ class Blog(models.Model):
     excerpt = models.CharField(max_length=500, blank=True)
     content = models.TextField(blank=True)
     featured_image = models.ImageField(upload_to='blog/', blank=True, null=True)
+    image_url = models.URLField(max_length=500, blank=True)
     author = models.CharField(max_length=100, default='Team Crystal')
     category = models.ForeignKey(BlogCategory, on_delete=models.SET_NULL, null=True, blank=True, related_name='blogs')
     is_published = models.BooleanField(default=False)

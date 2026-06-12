@@ -16,6 +16,7 @@ from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
 from products.models import Product
+from blog.models import Blog
 
 
 def _truthy(v):
@@ -23,27 +24,24 @@ def _truthy(v):
 
 
 class Command(BaseCommand):
-    help = "Load wp_products fixture when empty (or force-replace with FORCE_RESEED=1)."
-
-    def add_arguments(self, parser):
-        parser.add_argument("--fixture", default="wp_products")
+    help = "Load wp_products + wp_blogs fixtures when empty (or force-replace with FORCE_RESEED=1)."
 
     def handle(self, *args, **opts):
-        fixture = opts["fixture"]
         force = _truthy(os.environ.get("FORCE_RESEED", ""))
+        self._seed(Product, "wp_products", "products", force)
+        self._seed(Blog, "wp_blogs", "blog posts", force)
 
+    def _seed(self, Model, fixture, label, force):
         if force:
-            n = Product.objects.count()
-            Product.objects.all().delete()
-            self.stdout.write(self.style.WARNING(f"FORCE_RESEED set — deleted {n} existing products."))
+            n = Model.objects.count()
+            Model.objects.all().delete()
+            self.stdout.write(self.style.WARNING(f"FORCE_RESEED set — deleted {n} {label}."))
             call_command("loaddata", fixture)
-            self.stdout.write(self.style.SUCCESS(f"Reseeded. Products now: {Product.objects.count()}."))
+            self.stdout.write(self.style.SUCCESS(f"Reseeded {label}: {Model.objects.count()}."))
             return
-
-        if Product.objects.exists():
-            self.stdout.write(f"Products already present ({Product.objects.count()}); skipping seed.")
+        if Model.objects.exists():
+            self.stdout.write(f"{label} already present ({Model.objects.count()}); skipping.")
             return
-
-        self.stdout.write("No products found — loading fixture…")
+        self.stdout.write(f"No {label} found — loading {fixture}…")
         call_command("loaddata", fixture)
-        self.stdout.write(self.style.SUCCESS(f"Loaded. Products now: {Product.objects.count()}."))
+        self.stdout.write(self.style.SUCCESS(f"Loaded {label}: {Model.objects.count()}."))
